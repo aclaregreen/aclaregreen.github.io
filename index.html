@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andrew Clare-Green - Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <nav id="nav">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo">&lt;ACG&gt;</a>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section id="home">
+      <canvas id="starCanvas"></canvas>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-inner">
+        <div class="hero-left">
+          <h1>
+            <span>Hey, I'm </span>
+            <span class="hero-name">Andrew Clare-Green</span>
+            <span class="hero-tagline">Full-Stack Developer</span>
+          </h1>
+          <p class="hero-description">
+            4th year Computer Science student at the University of Guelph,
+            passionate about front-end development, AI, and building things that
+            work well.
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">See My Work</a>
+            <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <div class="section-header">
+        <span class="section-eyebrow">// about me</span>
+        <h2>
+          Building software <span class="gradient-text">that matters</span>
+        </h2>
+      </div>
+
+      <div class="about-content">
+        <p class="about-lead">
+          I'm a 4th year Computer Science student at the University of Guelph,
+          focused on building clean, functional software across the stack.
+        </p>
+        <p class="about-body">
+          My interests span front-end development, AI, and backend systems. I've
+          gained real-world experience through co-op internships and enjoy
+          picking up new technologies along the way.
+        </p>
+
+        <div class="about-facts">
+          <div class="fact">
+            <span class="fact-key">Degree</span>
+            <span class="fact-val">BComp Computer Science, Co-op</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">School</span>
+            <span class="fact-val">University of Guelph</span>
+          </div>
+          <div class="fact">
+            <span class="fact-key">Interests</span>
+            <span class="fact-val">Front-End · AI · Backend · Databases</span>
+          </div>
+        </div>
+
+        <div class="about-links">
+          <a
+            href="https://github.com/aclaregreen"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            >GitHub</a
+          >
+          <a
+            href="https://linkedin.com/in/aclaregreen"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-ghost"
+            >LinkedIn</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-eyebrow">// skills & tools</span>
+        <h2>What I <span class="gradient-text">work with</span></h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Languages</h3>
+          <div class="badges">
+            <span class="badge">JavaScript</span>
+            <span class="badge">TypeScript</span>
+            <span class="badge">Python</span>
+            <span class="badge">C</span>
+            <span class="badge">Java</span>
+            <span class="badge">SQL</span>
+            <span class="badge">C#</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Frameworks</h3>
+          <div class="badges">
+            <span class="badge">React</span>
+            <span class="badge">Vue</span>
+            <span class="badge">React Native</span>
+            <span class="badge">Flutter</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Tools & Platforms</h3>
+          <div class="badges">
+            <span class="badge">Firebase</span>
+            <span class="badge">Supabase</span>
+            <span class="badge">Git</span>
+            <span class="badge">Docker</span>
+            <span class="badge">Figma</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-eyebrow">// projects</span>
+        <h2>Some of my <span class="gradient-text">best work</span></h2>
+      </div>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-body">
+            <h3 class="project-name">Project Manager AI</h3>
+            <p class="project-description"></p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Python</span>
+              <span>SQL</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-body">
+            <h3 class="project-name">Fitness Facility Management Software</h3>
+            <p class="project-description"></p>
+            <div class="project-tech">
+              <span>React</span>
+              <span>Supabase</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-body">
+            <h3 class="project-name">8 Ball Pool</h3>
+            <p class="project-description"></p>
+            <div class="project-tech">
+              <span>C</span>
+              <span>Python</span>
+              <span>JavaScript</span>
+            </div>
+            <a
+              href="https://eight-ball-3cq4.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost"
+              >Play it Live</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="experience">
+      <div class="section-header">
+        <span class="section-eyebrow">// work experience</span>
+        <h2>Where I've <span class="gradient-text">worked</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-left">
+            <span class="tl-date">Jan 2026 — Present</span>
+            <div class="tl-logo">E</div>
+          </div>
+          <div class="tl-connector">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-title">Software Developer Co-op</h3>
+                  <span class="tl-company">EcoTank Canada</span>
+                </div>
+                <span class="tl-location">Orangeville, ON</span>
+              </div>
+              <ul class="tl-points">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div class="tl-tags">
+                <span>Vue</span>
+                <span>Firebase</span>
+                <span>GCP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <span class="tl-date">Sep 2024 — Dec 2024</span>
+            <div class="tl-logo">U</div>
+          </div>
+          <div class="tl-connector">
+            <div class="tl-dot"></div>
+            <div class="tl-line"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-title">Scheduling Systems Support Co-op</h3>
+                  <span class="tl-company">University of Guelph</span>
+                </div>
+                <span class="tl-location">Guelph, ON</span>
+              </div>
+              <ul class="tl-points">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div class="tl-tags">
+                <span>SQL</span>
+                <span>Visual Basic</span>
+                <span>QA Testing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-left">
+            <span class="tl-date">May 2024 — Aug 2024</span>
+            <div class="tl-logo">U</div>
+          </div>
+          <div class="tl-connector">
+            <div class="tl-dot"></div>
+          </div>
+          <div class="tl-right">
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-title">Registrarial Systems and Technologies Co-op</h3>
+                  <span class="tl-company">University of Guelph</span>
+                </div>
+                <span class="tl-location">Guelph, ON</span>
+              </div>
+              <ul class="tl-points">
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+              <div class="tl-tags">
+                <span>SQL</span>
+                <span>Visual Basic</span>
+                <span>Web Development</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <div class="section-header">
+        <span class="section-eyebrow">// get in touch</span>
+        <h2>Let's <span class="gradient-text">connect</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:aclaregr@uoguelph.ca" class="contact-value"
+              >aclaregr@uoguelph.ca</a
+            >
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Guelph, Ontario</span>
+          </div>
+          <div class="contact-links">
+            <a
+              href="https://github.com/aclaregreen"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost"
+              >GitHub</a
+            >
+            <a
+              href="https://linkedin.com/in/aclaregreen"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-ghost"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-field">
+            <label for="fname">Name</label>
+            <input type="text" id="fname" placeholder="Your name" />
+          </div>
+          <div class="form-field">
+            <label for="femail">Email</label>
+            <input type="email" id="femail" placeholder="your@email.com" />
+          </div>
+          <div class="form-field">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" placeholder="What's this about?" />
+          </div>
+          <div class="form-field">
+            <label for="fmessage">Message</label>
+            <textarea
+              id="fmessage"
+              placeholder="What's on your mind?"
+              rows="5"
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-inner">
+        <a href="#home" class="footer-logo">&lt;/ACG&gt;</a>
+        <p class="footer-copy">&copy; 2026 Andrew Clare-Green</p>
+      </div>
+    </footer>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg
+        class="icon-sun"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+      </svg>
+      <svg
+        class="icon-moon"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+      </svg>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
