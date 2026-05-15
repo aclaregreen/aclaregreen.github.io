@@ -6,6 +6,7 @@ toggle.addEventListener("click", () => {
     "theme",
     document.body.classList.contains("light") ? "light" : "dark",
   );
+  startAnimation();
 });
 
 if (localStorage.getItem("theme") === "light") {
@@ -34,15 +35,18 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Constellation
+// Canvas
 const canvas = document.getElementById("starCanvas");
 const ctx = canvas.getContext("2d");
-let stars = [];
+let animFrame;
 
 function resize() {
   canvas.width = canvas.offsetWidth;
   canvas.height = canvas.offsetHeight;
 }
+
+// --- Constellation ---
+let stars = [];
 
 function createStars() {
   stars = [];
@@ -58,7 +62,7 @@ function createStars() {
   }
 }
 
-function draw() {
+function drawStars() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   stars.forEach((star) => {
@@ -89,15 +93,133 @@ function draw() {
     }
   }
 
-  requestAnimationFrame(draw);
+  animFrame = requestAnimationFrame(drawStars);
+}
+
+// --- Clouds ---
+let clouds = [];
+
+// Puff layout: x/y as fractions of cloud W/H, r as fraction of W
+// Arranged in 3 layers: base (wide, flat), mid, top — cumulus shape
+const PUFF_LAYOUT = [
+  { x: 0.07, y: 0.78, r: 0.11 },
+  { x: 0.20, y: 0.84, r: 0.13 },
+  { x: 0.36, y: 0.78, r: 0.15 },
+  { x: 0.53, y: 0.82, r: 0.13 },
+  { x: 0.68, y: 0.77, r: 0.12 },
+  { x: 0.83, y: 0.83, r: 0.10 },
+  { x: 0.17, y: 0.52, r: 0.13 },
+  { x: 0.33, y: 0.40, r: 0.16 },
+  { x: 0.51, y: 0.36, r: 0.18 },
+  { x: 0.67, y: 0.44, r: 0.15 },
+  { x: 0.80, y: 0.53, r: 0.11 },
+  { x: 0.32, y: 0.20, r: 0.12 },
+  { x: 0.50, y: 0.12, r: 0.14 },
+  { x: 0.64, y: 0.21, r: 0.11 },
+];
+
+function bakeCloud(scale) {
+  const W = Math.round(340 * scale);
+  const H = Math.round(145 * scale);
+  const pad = Math.round(28 * scale);
+  const oc = document.createElement("canvas");
+  oc.width = W + pad * 2;
+  oc.height = H + pad * 2;
+  const oc2 = oc.getContext("2d");
+
+  // Add small random jitter per cloud so no two look identical
+  const jitter = () => (Math.random() - 0.5) * 0.05;
+  const puffs = PUFF_LAYOUT.map(p => ({
+    x: (p.x + jitter()) * W,
+    y: (p.y + jitter()) * H,
+    r: p.r * W * (0.88 + Math.random() * 0.24),
+  }));
+
+  // Layer 1 — blue-grey shadow, offset down-right for depth
+  puffs.forEach(({ x, y, r }) => {
+    oc2.beginPath();
+    oc2.arc(pad + x + r * 0.18, pad + y + r * 0.22, r * 0.88, 0, Math.PI * 2);
+    oc2.fillStyle = "rgba(130, 168, 210, 0.55)";
+    oc2.fill();
+  });
+
+  // Layer 2 — main body, off-white
+  puffs.forEach(({ x, y, r }) => {
+    oc2.beginPath();
+    oc2.arc(pad + x, pad + y, r, 0, Math.PI * 2);
+    oc2.fillStyle = "rgba(238, 248, 255, 0.96)";
+    oc2.fill();
+  });
+
+  // Layer 3 — bright white highlight on upper puffs only
+  puffs.slice(6).forEach(({ x, y, r }) => {
+    oc2.beginPath();
+    oc2.arc(pad + x - r * 0.08, pad + y - r * 0.12, r * 0.62, 0, Math.PI * 2);
+    oc2.fillStyle = "rgba(255, 255, 255, 0.95)";
+    oc2.fill();
+  });
+
+  return { img: oc, pad, W };
+}
+
+function makeCloud(x) {
+  const scale = Math.random() * 0.75 + 0.5;
+  return {
+    x,
+    y: Math.random() * canvas.height * 0.70 + 30,
+    speed: Math.random() * 0.28 + 0.07,
+    scale,
+    alpha: Math.random() * 0.08 + 0.88,
+    baked: bakeCloud(scale),
+  };
+}
+
+function createClouds() {
+  clouds = [];
+  for (let i = 0; i < 7; i++) {
+    clouds.push(makeCloud(Math.random() * canvas.width));
+  }
+}
+
+function drawClouds() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  clouds.forEach((cloud) => {
+    cloud.x += cloud.speed;
+    if (cloud.x > canvas.width + cloud.baked.pad) {
+      cloud.x = -(cloud.baked.W + cloud.baked.pad);
+      cloud.y = Math.random() * canvas.height * 0.70 + 30;
+      cloud.baked = bakeCloud(cloud.scale); // re-bake for variety
+    }
+    const blurPx = Math.round(14 * cloud.scale);
+    ctx.save();
+    ctx.filter = `blur(${blurPx}px)`;
+    ctx.globalAlpha = cloud.alpha;
+    ctx.drawImage(cloud.baked.img, cloud.x - cloud.baked.pad, cloud.y - cloud.baked.pad);
+    ctx.restore();
+  });
+
+  animFrame = requestAnimationFrame(drawClouds);
+}
+
+// --- Switch ---
+function startAnimation() {
+  cancelAnimationFrame(animFrame);
+  if (document.body.classList.contains("light")) {
+    createClouds();
+    drawClouds();
+  } else {
+    createStars();
+    drawStars();
+  }
 }
 
 resize();
-createStars();
-draw();
+startAnimation();
+
 window.addEventListener("resize", () => {
   resize();
-  createStars();
+  startAnimation();
 });
 
 // Custom cursor
