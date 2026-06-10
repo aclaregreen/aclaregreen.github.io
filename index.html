@@ -36,7 +36,7 @@
         <div class="hero-left">
           <h1>
             <span>Hey, I'm </span>
-            <span class="hero-name">Andrew<br>Clare-Green</span>
+            <span class="hero-name">Andrew<br />Clare-Green</span>
             <span class="hero-tagline">Full-Stack Developer</span>
           </h1>
           <p class="hero-description">
@@ -150,44 +150,110 @@
         <span class="section-eyebrow">// projects</span>
         <h2>Some of my <span class="gradient-text">best work</span></h2>
       </div>
+      <!-- <div class="project-tabs">
+        <button class="tab-btn active" data-filter="all">All</button>
+        <button class="tab-btn" data-filter="projects">Projects</button>
+      </div> -->
       <div class="project-grid">
-        <div class="project-card">
+        <div class="project-card" data-category="projects">
           <div class="project-body">
             <h3 class="project-name">Project Manager AI</h3>
-            <p class="project-description"></p>
+            <p class="project-description">
+              An AI-powered productivity app that ingests documents and raw
+              information, then breaks them down into structured tasks and
+              schedules. Built around a full chat interface backed by an LLM
+              API, with a task board and in-progress tracker to manage
+              everything it generates. FastAPI backend, raw PostgreSQL, and
+              custom-built authentication. Actively in development as a real
+              product.
+            </p>
             <div class="project-tech">
               <span>React</span>
               <span>Python</span>
-              <span>SQL</span>
+              <span>FastAPI</span>
+              <span>PostgreSQL</span>
             </div>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-category="projects">
           <div class="project-body">
-            <h3 class="project-name">Fitness Facility Management Software</h3>
-            <p class="project-description"></p>
+            <h3 class="project-name">Fitness Facility Management</h3>
+            <p class="project-description">
+              Full-featured gym management platform covering members,
+              memberships, personal training, classes, and scheduling in one
+              place. The standout is a fully custom role-based access control
+              system. Roles can be created with granular read/write permissions
+              scoped to any part of the app, built entirely from scratch.
+            </p>
             <div class="project-tech">
               <span>React</span>
               <span>Supabase</span>
             </div>
           </div>
         </div>
-        <div class="project-card">
+        <div class="project-card" data-category="projects">
           <div class="project-body">
             <h3 class="project-name">8 Ball Pool</h3>
-            <p class="project-description"></p>
+            <p class="project-description">
+              Multiplayer pool game built from scratch with a custom physics
+              engine written in C, served through a Python backend, and rendered
+              in the browser via dynamically re-rendered SVGs. Includes
+              real-time multiplayer and saved game progress.
+            </p>
             <div class="project-tech">
               <span>C</span>
               <span>Python</span>
               <span>JavaScript</span>
+              <span>SVG</span>
             </div>
-            <a
-              href="https://eight-ball-3cq4.onrender.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-ghost"
-              >Play it Live</a
-            >
+            <div class="project-links">
+              <a
+                href="https://eight-ball-3cq4.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-ghost"
+                >Play it Live</a
+              >
+              <a
+                href="https://github.com/aclaregreen/8-ball"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-ghost"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project-card" data-category="projects">
+          <div class="project-body">
+            <h3 class="project-name">Mancala</h3>
+            <p class="project-description">
+              Two-player desktop Mancala built with Java Swing, supporting both
+              Kalah and Ayo rule variants through an abstract GameRules
+              hierarchy with concrete subclasses for each ruleset. Features
+              persistent player profiles tracking win/loss stats per ruleset and
+              mid-game save and resume via Java object serialization.
+            </p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Swing</span>
+              <span>Gradle</span>
+              <span>JUnit 5</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/aclaregreen/Mancala"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-ghost"
+                >GitHub</a
+              >
+              <a
+                href="https://github.com/aclaregreen/Mancala/releases/download/v1.0/TextUI.jar"
+                class="btn btn-ghost"
+                >Download Jar File</a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -217,14 +283,46 @@
                 <span class="tl-location">Orangeville, ON</span>
               </div>
               <ul class="tl-points">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  Refactored the entire codebase to reference customers by ID
+                  rather than name, eliminating duplicate data and writing a
+                  migration script to update all existing Firestore records
+                  which established a single source of truth
+                </li>
+                <li>
+                  Built an inventory transaction system to track stock movement
+                  between refill centers and service trucks, recording what
+                  moved, when, and by what method
+                </li>
+                <li>
+                  Developed route management features including real-time route
+                  refresh, dynamic polyline recalculation, and live ETA updates
+                  for active service truck routes
+                </li>
+                <li>
+                  Built a bulk upload feature with dynamic CSV column mapping,
+                  enabling batch creation of database records from external
+                  files
+                </li>
+                <li>
+                  Implemented a tutorials feature allowing admins to upload and
+                  manage instructional videos directly within the app
+                </li>
               </ul>
               <div class="tl-tags">
                 <span>Vue</span>
+                <span>JavaScript</span>
                 <span>Firebase</span>
                 <span>GCP</span>
+              </div>
+              <div class="tl-actions">
+                <a
+                  href="https://aclaregreen.github.io/work-term-3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-ghost"
+                  >Work Term Report</a
+                >
               </div>
             </div>
           </div>
@@ -248,14 +346,33 @@
                 <span class="tl-location">Guelph, ON</span>
               </div>
               <ul class="tl-points">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  Conducted QA testing on an AI chatbot assistant for the
+                  university's registrar office, identifying and documenting
+                  bugs and usability issues to improve reliability
+                </li>
+                <li>
+                  Unified fall and winter course selection data by merging
+                  databases using SQL across multiple datasets
+                </li>
+                <li>
+                  Debugged and optimized Visual Basic and SQL code in Microsoft
+                  Access to improve functionality and maintain data integrity
+                </li>
               </ul>
               <div class="tl-tags">
                 <span>SQL</span>
                 <span>Visual Basic</span>
                 <span>QA Testing</span>
+              </div>
+              <div class="tl-actions">
+                <a
+                  href="https://aclaregreen.github.io/WorkTerm2/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-ghost"
+                  >Work Term Report</a
+                >
               </div>
             </div>
           </div>
@@ -272,20 +389,44 @@
             <div class="tl-card">
               <div class="tl-header">
                 <div>
-                  <h3 class="tl-title">Registrarial Systems and Technologies Co-op</h3>
+                  <h3 class="tl-title">
+                    Registrarial Systems and Technologies Co-op
+                  </h3>
                   <span class="tl-company">University of Guelph</span>
                 </div>
                 <span class="tl-location">Guelph, ON</span>
               </div>
               <ul class="tl-points">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  Developed and maintained Visual Basic scripts to automate
+                  repetitive processes and enhance database functionality
+                </li>
+                <li>
+                  Reviewed and optimized SQL queries to improve performance and
+                  accuracy of database operations
+                </li>
+                <li>
+                  Managed confidential applicant and transfer student records
+                  across Excel-based systems, ensuring data accuracy
+                </li>
+                <li>
+                  Updated and maintained university web content by editing
+                  XML-based document templates
+                </li>
               </ul>
               <div class="tl-tags">
                 <span>SQL</span>
                 <span>Visual Basic</span>
-                <span>Web Development</span>
+                <span>XML</span>
+              </div>
+              <div class="tl-actions">
+                <a
+                  href="https://aclaregreen.github.io/Co-op/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-ghost"
+                  >Work Term Report</a
+                >
               </div>
             </div>
           </div>

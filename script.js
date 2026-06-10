@@ -35,6 +35,32 @@ window.addEventListener("scroll", () => {
   });
 });
 
+// Project tab filtering
+const tabBtns = document.querySelectorAll(".tab-btn");
+const projectGrid = document.querySelector(".project-grid");
+const projectCards = document.querySelectorAll(".project-card");
+
+tabBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    tabBtns.forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+
+    const filter = btn.dataset.filter;
+
+    projectGrid.style.opacity = "0";
+    projectGrid.style.transform = "translateY(6px)";
+
+    setTimeout(() => {
+      projectCards.forEach((card) => {
+        const match = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("hidden", !match);
+      });
+      projectGrid.style.opacity = "1";
+      projectGrid.style.transform = "translateY(0)";
+    }, 180);
+  });
+});
+
 // Canvas
 const canvas = document.getElementById("starCanvas");
 const ctx = canvas.getContext("2d");
